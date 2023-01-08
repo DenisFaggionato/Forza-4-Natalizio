@@ -39,6 +39,7 @@ let c;          //Queste variabili cambiano valore a seconda del bottone premuto
 let d;
 let e;
 let f;
+let h;
 
 while(team!=pandoro)
 {
@@ -89,6 +90,7 @@ function vinci()
         //Con degli if controllo se gli id in html contengono l'immagine del pandoro o del panettone, poi controllo se la partita è contro il bot o no, nel primo caso controllo se la combinazione vincente appartiene al bot o al giocatore, e in caso dice al giocatore se ha vinto o perso. Nel secondo caso se la partita è locale il programma stabilirà il team che ha vinto. Poi a seconda del risultato faccio apparire le scritte nascoste ad inizio programma.
         if(punto1 == "<img src=\"style/img/panettone.jpg\">" && punto2 == "<img src=\"style/img/panettone.jpg\">" && punto3 == "<img src=\"style/img/panettone.jpg\">" && punto4 == "<img src=\"style/img/panettone.jpg\">" )
         {
+            bot--; //Abbasso di un numero la variabile così non inserisce un ulteriore gettone, durante i test mi è capitato che quando inserivo il quarto gettone, anche il bot lo faceva creando così una situazione sia di vittoria che di sconfitta.
             document.getElementById(vincitore[index][0]).innerHTML = "<img src=\"style/img/panettonedoro.jpg\">";
             document.getElementById(vincitore[index][1]).innerHTML = "<img src=\"style/img/panettonedoro.jpg\">"; //Nella riga vincente cambio l'immagine così da far capire all'utente qual'è.
             document.getElementById(vincitore[index][2]).innerHTML = "<img src=\"style/img/panettonedoro.jpg\">";
@@ -117,6 +119,7 @@ function vinci()
         }
         if(punto1 == "<img src=\"style/img/pandoro.jpg\">" && punto2 == "<img src=\"style/img/pandoro.jpg\">" && punto3 == "<img src=\"style/img/pandoro.jpg\">" && punto4 == "<img src=\"style/img/pandoro.jpg\">" )
         {
+            bot--;
             document.getElementById(vincitore[index][0]).innerHTML = "<img src=\"style/img/pandorodoro.jpg\">";
             document.getElementById(vincitore[index][1]).innerHTML = "<img src=\"style/img/pandorodoro.jpg\">";
             document.getElementById(vincitore[index][2]).innerHTML = "<img src=\"style/img/pandorodoro.jpg\">";
@@ -225,6 +228,7 @@ function bottone7()
 
 function Controlla()
 {
+    
     if(i % 2 == 0) //Il valore di I stabilisce il turno, e poi a seconda del tuno il programma inserisce il pandoro o il panettone.
     {
         inserisci = pandoro;     
@@ -299,19 +303,21 @@ function Controlla()
             }
         }   
     }
+    
+    vinci(); //Faccio avviare la funzione ora, così in caso di vincita il programma non farà partire l'if che aziona il bot.
 
-    if(bot % 2 == 0) //Se è il turno del bot, creo una variabile che casualmente sceglie l'id del bottone da premere.
-    {    
-        let random = Math.floor(Math.random() * bottoni.length);
-        let gettonisopra = [42,41,40,39,38,37,36]; //questo harray contiene gli id delle caselle della riga in alto
-        while(document.getElementById(gettonisopra[random]).innerHTML!="<img src=\"style/img/nogettone.jpg\">") //In caso la casella in alto sia piena, il programma genera l'id di un altro bottone da premere.
-        {
-            random = Math.floor(Math.random() * bottoni.length);
+        if(bot % 2 == 0) //Se è il turno del bot, creo una variabile che casualmente sceglie l'id del bottone da premere.
+        {    
+            let random = Math.floor(Math.random() * bottoni.length);
+            let gettonisopra = [42,41,40,39,38,37,36]; //questo harray contiene gli id delle caselle della riga in alto
+            while(document.getElementById(gettonisopra[random]).innerHTML!="<img src=\"style/img/nogettone.jpg\">") //In caso la casella in alto sia piena, il programma genera l'id di un altro bottone da premere.
+            {
+                random = Math.floor(Math.random() * bottoni.length);
+            }
+            document.getElementById(bottoni[random]).click(); //con questo comando premo il bottone in html
         }
-        document.getElementById(bottoni[random]).click(); //con questo comando premo il bottone in html
-    }
-    vinci();
 }
+
 
 
 
