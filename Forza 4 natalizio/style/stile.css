@@ -1,0 +1,60 @@
+body
+{
+    background-image:url("img/sfondo.jpg");
+    background-repeat: inherit;
+    background-size: cover;
+}
+img
+{
+    height: 5vw;
+    width: 5vw;
+    align-items: center;
+}
+table
+{
+    margin-top: 7vw;
+    margin-bottom: 7vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    height: auto;
+    background-color: brown;
+    box-shadow: 0vw 0vw 1vw black;
+    border-radius: 2vw;
+}
+td
+{
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+button
+{
+    height: auto;
+    width: auto;
+    margin-left: 0.5vw;
+    font-size:auto;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color:darkred;
+    text-align: center;
+    border-radius: 10vw;
+    shape-margin: 10vw;
+    color:antiquewhite;
+    
+}
+#bottonefine
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+h1
+{
+    text-align: center;
+    color: aliceblue;
+    font-size: 5vw;
+}
+#videonatale
+{
+    margin-left: auto;
+    margin-right: auto;
+}
